@@ -52,9 +52,10 @@ docker run -d \
   -p 5432:5432 \
   postgres:latest
 ```
-
+---
 ## 📥 EXTRACTING DATA  
 Proses ekstraksi data dilakukan melalui empat pipeline ETL paralel yang mengambil data mentah dari berbagai file CSV terkait pendidikan dasar di Indonesia tahun 2024. Setiap pipeline bertugas mengekstrak, membersihkan, dan memuat data ke dalam tabel basis data yang telah didefinisikan dengan skema terstruktur menggunakan skrip SQL, seperti tabel `data_sd.gambaran_umum` untuk data sekolah dan siswa, serta tabel `data_sd.kg_golongan`, `data_sd.kg_jk_ijazah`, dan `data_sd.kg_masa_kerja` untuk data kepegawaian kepala sekolah dan guru berdasarkan golongan, jenis kelamin, ijazah, dan masa kerja. Pendekatan ini memastikan data yang diolah bersih, terstruktur, dan siap untuk tahap transformasi. Proses ETL di Pentaho ada pada file etl_data_sd.ktr (https://github.com/alvinmhabieb/Rubythalib_Data_Engineering_Minibootcamp/blob/main/etl_data_sd.ktr)
+
 ---
 
 ## 🔄 TRANSFORMING DATA  
