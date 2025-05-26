@@ -35,7 +35,7 @@ Proyek ini berfokus pada pengolahan dan analisis data pendidikan dasar di Indone
 ## 🗂️ ETL PIPELINE & SCHEMA DIAGRAM  
 Proyek ini menggunakan pipeline ETL yang terdiri dari beberapa tahap utama: Extracting, Transforming, dan Loading data. Setiap tahap dijalankan secara tercontainerisasi untuk memastikan modularitas, skalabilitas, dan kemudahan pemeliharaan.
 
-[[ETL Schema Diagram.png](https://github.com/alvinmhabieb/Rubythalib_Data_Engineering_Minibootcamp/blob/main/ETL%20Schema%20Diagram.png)
+[ETL Schema Diagram.png](https://github.com/alvinmhabieb/Rubythalib_Data_Engineering_Minibootcamp/blob/main/ETL%20Schema%20Diagram.png)
 
 ---
 
@@ -50,7 +50,7 @@ docker run -d \
   -e POSTGRES_PASSWORD="POSTGRES_PASSWORD" \
   -e POSTGRES_DB="POSTGRES_DB" \
   -p 5432:5432 \
-  postgres:latest
+  postgres:latest```
 
 
 ## 📥 EXTRACTING DATA  
