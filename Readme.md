@@ -35,7 +35,7 @@ Proyek ini berfokus pada pengolahan dan analisis data pendidikan dasar di Indone
 ## 🗂️ ETL PIPELINE & SCHEMA DIAGRAM  
 Proyek ini menggunakan pipeline ETL yang terdiri dari beberapa tahap utama: Extracting, Transforming, dan Loading data. Setiap tahap dijalankan secara tercontainerisasi untuk memastikan modularitas, skalabilitas, dan kemudahan pemeliharaan.
 
-[ETL Schema Diagram.png]
+[[ETL Schema Diagram.png](https://github.com/alvinmhabieb/Rubythalib_Data_Engineering_Minibootcamp/blob/main/ETL%20Schema%20Diagram.png)]
 
 ---
 
@@ -54,12 +54,12 @@ docker run -d \
 
 
 ## 📥 EXTRACTING DATA  
-Proses ekstraksi data dilakukan melalui empat pipeline ETL paralel yang mengambil data mentah dari berbagai file CSV terkait pendidikan dasar di Indonesia tahun 2024. Setiap pipeline bertugas mengekstrak, membersihkan, dan memuat data ke dalam tabel basis data yang telah didefinisikan dengan skema terstruktur menggunakan skrip SQL, seperti tabel `data_sd.gambaran_umum` untuk data sekolah dan siswa, serta tabel `data_sd.kg_golongan`, `data_sd.kg_jk_ijazah`, dan `data_sd.kg_masa_kerja` untuk data kepegawaian kepala sekolah dan guru berdasarkan golongan, jenis kelamin, ijazah, dan masa kerja. Pendekatan ini memastikan data yang diolah bersih, terstruktur, dan siap untuk tahap transformasi. Script terkait proses ETL di SQL ada pada file etl_data_sd.sql
-
+Proses ekstraksi data dilakukan melalui empat pipeline ETL paralel yang mengambil data mentah dari berbagai file CSV terkait pendidikan dasar di Indonesia tahun 2024. Setiap pipeline bertugas mengekstrak, membersihkan, dan memuat data ke dalam tabel basis data yang telah didefinisikan dengan skema terstruktur menggunakan skrip SQL, seperti tabel `data_sd.gambaran_umum` untuk data sekolah dan siswa, serta tabel `data_sd.kg_golongan`, `data_sd.kg_jk_ijazah`, dan `data_sd.kg_masa_kerja` untuk data kepegawaian kepala sekolah dan guru berdasarkan golongan, jenis kelamin, ijazah, dan masa kerja. Pendekatan ini memastikan data yang diolah bersih, terstruktur, dan siap untuk tahap transformasi. Proses ETL di Pentaho ada pada file etl_data_sd.ktr (https://github.com/alvinmhabieb/Rubythalib_Data_Engineering_Minibootcamp/blob/main/etl_data_sd.ktr)
 ---
 
 ## 🔄 TRANSFORMING DATA  
-Pada tahap transformasi, berbagai dataset yang telah diekstrak dari sumber berbeda digabungkan menjadi satu tabel utama bernama `data_sd_indonesia`. Proses ini dilakukan dengan melakukan join antar tabel berdasarkan kolom `provinsi` dan `status` untuk menyatukan informasi dari gambaran umum sekolah, golongan kepegawaian, jenis kelamin dan ijazah, serta masa kerja kepala sekolah dan guru. Selanjutnya, dilakukan pembersihan data seperti penghapusan prefix "Prov. " pada nama provinsi dan normalisasi nama provinsi seperti mengubah "D.K.I. Jakarta" menjadi "DKI Jakarta" dan "D.I. Yogyakarta" menjadi "DI Yogyakarta". Kolom status juga diperbarui untuk menyamakan format penulisan menjadi "Negeri", "Swasta", atau "Lainnya". Selain itu, dilakukan agregasi data untuk membuat status gabungan yang mengkombinasikan data dari status negeri dan swasta, sehingga menghasilkan ringkasan data yang lebih komprehensif per provinsi.
+Pada tahap transformasi, berbagai dataset yang telah diekstrak dari sumber berbeda digabungkan menjadi satu tabel utama bernama `data_sd_indonesia`. Proses ini dilakukan dengan melakukan join antar tabel berdasarkan kolom `provinsi` dan `status` untuk menyatukan informasi dari gambaran umum sekolah, golongan kepegawaian, jenis kelamin dan ijazah, serta masa kerja kepala sekolah dan guru. Selanjutnya, dilakukan pembersihan data seperti penghapusan prefix "Prov. " pada nama provinsi dan normalisasi nama provinsi seperti mengubah "D.K.I. Jakarta" menjadi "DKI Jakarta" dan "D.I. Yogyakarta" menjadi "DI Yogyakarta". Kolom status juga diperbarui untuk menyamakan format penulisan menjadi "Negeri", "Swasta", atau "Lainnya". Selain itu, dilakukan agregasi data untuk membuat status gabungan yang mengkombinasikan data dari status negeri dan swasta, sehingga menghasilkan ringkasan data yang lebih komprehensif per provinsi. Script terkait proses ETL di SQL ada pada file etl_data_sd.sql(https://github.com/alvinmhabieb/Rubythalib_Data_Engineering_Minibootcamp/blob/main/etl_data_sd.sql)
+
 
 ---
 
